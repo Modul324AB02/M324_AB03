@@ -14,7 +14,7 @@ RUN yarn install
 COPY . .
 
 # Führe das Build-Skript aus
-RUN npm run lint && npm test && npm run build
+RUN yarn lint && yarn test && yarn build
 
 # Starte den Server beim Start des Containers
-CMD ["npm", "start"]
+CMD ["yarn", "start"]
