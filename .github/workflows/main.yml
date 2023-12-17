@@ -35,3 +35,9 @@ jobs:
           push: true
           tags: dimitri134/m324-simple-typescript:latest
 
+        env:
+          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+
+        # Log in to Docker Hub
+        run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
