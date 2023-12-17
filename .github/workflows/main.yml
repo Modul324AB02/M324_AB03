@@ -1,13 +1,9 @@
-name: Build and Test
-
-on:
-  push:
-  pull_request:
-
+name: GitHub Actions Demo
+run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+on: [push]
 jobs:
   Explore-GitHub-Actions:
     runs-on: self-hosted
-
     steps:
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
