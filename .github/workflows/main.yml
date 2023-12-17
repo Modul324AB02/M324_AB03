@@ -1,11 +1,14 @@
 name: Build and Test
-run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
-on: [push]
+
+on:
+  push:
+  pull_request:
+
 jobs:
   Explore-GitHub-Actions:
     runs-on: self-hosted
-    steps:
 
+    steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
 
@@ -22,8 +25,8 @@ jobs:
         run: yarn build
 
       - name: Build and push Docker image
-          uses: docker/build-push-action@v5
-          with:
-            context: .
-            push: true
-            tags: dimitri134/m324-simple-typescript:latest
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: true
+          tags: dimitri134/m324-simple-typescript:latest
