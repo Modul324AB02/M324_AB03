@@ -1,14 +1,9 @@
 name: Build and Test
-
-on:
-  push:
-    branches:
-      - main
-
+run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+on: [push]
 jobs:
-  build:
+  Explore-GitHub-Actions:
     runs-on: self-hosted
-
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
@@ -16,7 +11,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '14'  # Aktualisiert auf LTS-Version
+          node-version: '20.9.0'  # Aktualisiert auf LTS-Version
 
       - name: Install Dependencies
         run: yarn install
