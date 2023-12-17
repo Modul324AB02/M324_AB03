@@ -1,7 +1,7 @@
 name: CI Pipeline
 
 on:
-  push:
+  pull_request:
     branches:
       - development
 
@@ -23,11 +23,15 @@ jobs:
         run: yarn test
 
       - name: Run Build
-        run: yarn build
+        run: |
+          yarn build
+          echo "Build completed successfully!"
+
 
       - name: Build and Push Docker image
-        uses: docker/build-push-action@v2
+        uses: docker/build-push-action@v5
         with:
           context: .
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/m324-simple-typescript:latest
+          tags: dimitri134/m324-simple-typescript:latest
+
