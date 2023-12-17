@@ -1,0 +1,21 @@
+name: Build and Test
+run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+on: [push]
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: self-hosted
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Install Dependencies
+        run: yarn install
+
+      - name: Run Lint
+        run: yarn lint
+
+      - name: Run Tests
+        run: yarn test
+
+      - name: Run Build
+        run: yarn build
