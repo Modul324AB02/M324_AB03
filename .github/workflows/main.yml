@@ -8,9 +8,6 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
 
-      - name: Install Dependencies
-        run: yarn install
-
       - name: Run Lint
         run: yarn lint
 
