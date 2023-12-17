@@ -5,6 +5,7 @@ jobs:
   Explore-GitHub-Actions:
     runs-on: self-hosted
     steps:
+
       - name: Checkout Repository
         uses: actions/checkout@v2
 
@@ -19,3 +20,10 @@ jobs:
 
       - name: Run Build
         run: yarn build
+
+      - name: Build and push Docker image
+          uses: docker/build-push-action@v5
+          with:
+            context: .
+            push: true
+            tags: dimitri134/m324-simple-typescript:latest
