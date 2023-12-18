@@ -3,7 +3,7 @@ name: Continuous Integration
 on:
   push:
     branches:
-      - master
+      - develope-lars
 
 jobs:
   lint-test-build:
