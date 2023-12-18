@@ -41,7 +41,7 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         push: true
-        tags: rytry/modul_324_AB04:latest
+        tags: rytry/modul_324_ab04:latest
 
     - name: Check for linting and testing errors
       run: exit $(($? != 0))
