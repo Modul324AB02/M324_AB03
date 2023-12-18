@@ -1,9 +1,11 @@
 name: Continuous Integration
 
 on:
-  push:
+  pull_request:
     branches:
-      - develope-lars
+      - main
+    paths-ignore:
+      - '**/*.md'
 
 jobs:
   build-and-push:
