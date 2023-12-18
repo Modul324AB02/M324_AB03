@@ -8,6 +8,8 @@ RUN npm install
 
 COPY . .
 
+RUN npm run lint && npm run test
+
 RUN npm run build
 
 FROM node:alpine
