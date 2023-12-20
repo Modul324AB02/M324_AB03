@@ -9,6 +9,7 @@ on:
       - '**/*.md'
     types:
       - opened
+      - synchronize
 
 jobs:
   build-and-push:
