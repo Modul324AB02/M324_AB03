@@ -16,50 +16,50 @@ jobs:
     runs-on: [self-hosted, runner-lars]
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
-    - name: Log in to Docker Hub
-      uses: docker/login-action@v1
-      with:
-        username: ${{ secrets.DOCKER_HUB_USERNAME_LARS }}
-        password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN_LARS }}
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKER_HUB_USERNAME_LARS }}
+          password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN_LARS }}
 
-    - name: Build and push Docker image
-      uses: docker/build-push-action@v2
-      with:
-        push: true
-        tags: rytry/modul_324_ab04:latest
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v2
+        with:
+          push: true
+          tags: rytry/modul_324_ab04:latest
+      
+      # - name: Set up Kubectl
+      #   uses: azure/setup-kubectl@v1
+      #   with:
+      #     version: 'latest'
 
-    - name: Set up Kubectl
-      uses: azure/setup-kubectl@v1
-      with:
-        version: 'latest'
+      # - name: Set Kubernetes Context
+      #   uses: azure/k8s-set-context@v3
+      #   with:
+      #     kubeconfig: ${{ secrets.KUBE_CONFIG }}
 
-    - name: Set Kubernetes Context
-      uses: azure/k8s-set-context@v3
-      with:
-        kubeconfig: ${{ secrets.KUBE_CONFIG }}
-
-    - name: Replace and Apply Kubernetes Manifests
-    uses: swdotcom/update-and-apply-kubernetes-configs@v1
-    with:
-      k8-config-file-paths: |
-        .k8s/00_namespace.yml
-        .k8s/01_deployment.yml
-        .k8s/02_service.yml
-        .k8s/03_ingress.yml
-        .k8s/04_ingress_example.yml
-      replacement-method: list
-      env-replacement-list: |
-        KUBERNETES_NAMESPACE
-        IMAGE_TAG
-        APP_NAME
-        APP_NAME
-        BASE_URL
-    env:
-      KUBERNETES_NAMESPACE: m324-1
-      IMAGE_TAG: rytry/modul_324_ab04:latest
-      APP_NAME: Modul324_ab05_Lars
-      BASE_URL: lars.m324.hackerman.ch
+      # - name: Replace and Apply Kubernetes Manifests
+      #   uses: swdotcom/update-and-apply-kubernetes-configs@v1
+      #   with:
+      #     k8-config-file-paths: |
+      #       .k8s/00_namespace.yml
+      #       .k8s/01_deployment.yml
+      #       .k8s/02_service.yml
+      #       .k8s/03_ingress.yml
+      #       .k8s/04_ingress_example.yml
+      #   replacement-method: list
+      #   env-replacement-list: |
+      #     KUBERNETES_NAMESPACE
+      #     IMAGE_TAG
+      #     APP_NAME
+      #     APP_NAME
+      #     BASE_URL
+      #   env:
+      #     KUBERNETES_NAMESPACE: m324-1
+      #     IMAGE_TAG: rytry/modul_324_ab04:latest
+      #     APP_NAME: Modul324_ab05_Lars
+      #     BASE_URL: lars.m324.hackerman.ch
 
