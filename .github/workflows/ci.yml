@@ -5,6 +5,8 @@ on:
     branches:
       - main
       - development
+    tags:
+      - '*'
     paths-ignore:
       - '**/*.md'
     types:
