@@ -4,9 +4,12 @@ on:
   pull_request:
     branches:
       - main
+      - development
     paths-ignore:
       - '**/*.md'
-
+    types:
+      - opened
+      - synchonize 
 jobs:
   build-and-push:
     runs-on: [self-hosted, runner-lars]
