@@ -6,9 +6,6 @@ on:
       - '*'
     paths-ignore:
       - '**/*.md'
-    types:
-      - opened
-      - synchronize
 
 jobs:
   build-and-push:
