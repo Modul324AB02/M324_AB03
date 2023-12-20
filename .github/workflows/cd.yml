@@ -49,16 +49,10 @@ jobs:
             .k8s/02_service.yml
             .k8s/03_ingress.yml
             .k8s/04_ingress_example.yml
-        replacement-method: list
-        env-replacement-list: |
-          KUBERNETES_NAMESPACE
-          IMAGE_TAG
-          APP_NAME
-          APP_NAME
-          BASE_URL
-        env:
-          KUBERNETES_NAMESPACE: m324-1
-          IMAGE_TAG: rytry/modul_324_ab04:latest
-          APP_NAME: Modul324_ab05_Lars
-          BASE_URL: lars.m324.hackerman.ch
+          replacement-method: defined
+          env:
+            KUBERNETES_NAMESPACE: m324-1
+            IMAGE_TAG: rytry/modul_324_ab04:latest
+            APP_NAME: Modul324_ab05_Lars
+            BASE_URL: lars.m324.hackerman.ch
 
