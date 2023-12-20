@@ -21,7 +21,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Extract Tag Name
+      - name: Extract Tag Namen for docker Image
         id: tag_name
         run: echo "IMAGE_TAG=$(echo ${GITHUB_REF#refs/tags/})" >> $GITHUB_ENV
 
