@@ -54,6 +54,6 @@ jobs:
         env:
           KUBERNETES_NAMESPACE: m324-1
           IMAGE_TAG: rytry/modul_324_ab04:latest
-          APP_NAME: Modul324ab05Lars
+          APP_NAME: modul324ab05lars
           BASE_URL: lars.m324.hackerman.ch
 
