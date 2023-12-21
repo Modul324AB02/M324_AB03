@@ -7,8 +7,6 @@ on:
       - development
     tags:
       - '*'
-    paths-ignore:
-      - '**/*.md'
     types:
       - opened
       - synchonize 
