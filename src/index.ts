@@ -17,3 +17,10 @@ server.listen(serverPort, () => {
   // eslint-disable-next-line no-console
   console.log(`Express Server started on port ${serverPort}`);
 });
+
+// New Route-Handler for /log/time
+app.get('/log/time', (req: Request, res: Response) => {
+  const currentTime = new Date().toISOString();
+  console.log(`Log Time: ${currentTime}`);
+  res.send(`<h1>Current Time Logged</h1><p>${currentTime}</p>`);
+});
